@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import time
+import random
 from typing import List
 
 """
@@ -9,11 +10,6 @@ number for which the second occurrence has the minimal
 index. Returns the number NOT the index of the first duplicate.
 If no duplicates return -1
 """
-
-test_array = [2, 1, 3, 4, 5, 6, 3, 5, 9]
-# make sure the array abides by the problem statement rules 1-N,
-# where N is the length of the array
-assert max(test_array) <= len(test_array)
 
 
 def first_duplicate(array: List[int]) -> int:
@@ -26,4 +22,22 @@ def first_duplicate(array: List[int]) -> int:
     return -1
 
 
-print(first_duplicate(test_array))
+def main():
+    number_of_elements = 10
+    test_array = [
+        random.randint(1, number_of_elements) for i in range(number_of_elements)
+    ]
+    # make sure the array abides by the problem statement rules 1-N,
+    # where N is the length of the array
+    assert max(test_array) <= len(test_array)  # redundant as randint() considers max
+
+    print(test_array)
+    start = time.time()
+    print(first_duplicate(test_array))
+    print(
+        f"Finding first duplicate in array took: {(time.time()-start)*1000} milliseconds"
+    )
+
+
+if __name__ == "__main__":
+    main()

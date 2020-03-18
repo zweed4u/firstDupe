@@ -29,5 +29,8 @@ func main() {
 	}
 
 	fmt.Println(array)
+	start := time.Now()
 	fmt.Println(firstDupe(array))
+	totalTime := time.Since(start)
+	fmt.Printf("took %s to find the first duplicate\n", totalTime)
 }
